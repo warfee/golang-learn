@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Ahmad Ali",
+    "email": "ahmad@example.com",
+    "membership": "gold",
+    "points": 1200,
+    "created_at": { "$date": "2025-05-01T10:00:00Z" }
+  },
+  {
+    "name": "Nur Aisyah",
+    "email": "aisyah@example.com",
+    "membership": "platinum",
+    "points": 2500,
+    "created_at": { "$date": "2025-04-15T15:30:00Z" }
+  },
+  {
+    "name": "John Tan",
+    "email": "john@example.com",
+    "membership": "silver",
+    "points": 600,
+    "created_at": { "$date": "2025-03-20T09:45:00Z" }
+  }
+]

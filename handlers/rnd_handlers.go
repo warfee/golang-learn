@@ -1,17 +1,17 @@
 package handlers
 
 import (
-	"fmt"
-  	"os"
+	// "fmt"
+  	// "os"
 	"github.com/gin-gonic/gin"
 	"github.com/shirou/gopsutil/v3/cpu"
   	"github.com/shirou/gopsutil/v3/mem"
   	"github.com/shirou/gopsutil/v3/disk"
   	"time"
   	"math"
-  	"net/http"
-  	"database/sql"
-  	_ "github.com/go-sql-driver/mysql"
+  	// "net/http"
+  	// "database/sql"
+  	// _ "github.com/go-sql-driver/mysql"
 )
 
 func Ping(c *gin.Context) {
@@ -35,38 +35,38 @@ func Stats(c *gin.Context) {
     })
 }
 
-func MysqlConnect(c *gin.Context) {
+// func MysqlConnect(c *gin.Context) {
 
 
-    host := os.Getenv("MYSQL_DB_HOST")
-    port := os.Getenv("MYSQL_DB_PORT")
-    name := os.Getenv("MYSQL_DB_NAME")
-    username := os.Getenv("MYSQL_DB_USERNAME")
-    password := os.Getenv("MYSQL_DB_PASSWORD")
+//     host := os.Getenv("MYSQL_DB_HOST")
+//     port := os.Getenv("MYSQL_DB_PORT")
+//     name := os.Getenv("MYSQL_DB_NAME")
+//     username := os.Getenv("MYSQL_DB_USERNAME")
+//     password := os.Getenv("MYSQL_DB_PASSWORD")
 
-    if host == "" || port == "" || name == "" || username == "" || password == "" {
-        c.JSON(http.StatusBadRequest, gin.H{
-            "status": "Database connection info is missing",
-        })
-        return
-    }
+//     if host == "" || port == "" || name == "" || username == "" || password == "" {
+//         c.JSON(http.StatusBadRequest, gin.H{
+//             "status": "Database connection info is missing",
+//         })
+//         return
+//     }
 
-    database_credential := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", username, password, host, port, name)
+//     database_credential := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", username, password, host, port, name)
 
-    db, err := sql.Open("mysql", database_credential)
+//     db, err := sql.Open("mysql", database_credential)
 
-    if errPing := db.Ping(); err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{
-            "status": "Ping failed",
-            "error":  errPing.Error(),
-        })
-        return
-    }
+//     if errPing := db.Ping(); err != nil {
+//         c.JSON(http.StatusInternalServerError, gin.H{
+//             "status": "Ping failed",
+//             "error":  errPing.Error(),
+//         })
+//         return
+//     }
 
-    c.JSON(http.StatusOK, gin.H{
-        "status": "Success to connect to DB",
-    })
-}
+//     c.JSON(http.StatusOK, gin.H{
+//         "status": "Success to connect to DB",
+//     })
+// }
 
 
 

@@ -6,7 +6,7 @@ import (
 )
 
 func MongoRoutes(router *gin.Engine) {
-	mongoRouteGroup := router.Group("/rnd/mongo")
+	mongoRouteGroup := router.Group("/mongo")
 	{
 		mongoRouteGroup.GET("/one", handlers.MongoSelectOne)
 		mongoRouteGroup.GET("/insert", handlers.MongoInsert)

@@ -10,8 +10,6 @@ import (
   	"time"
   	"math"
   	// "net/http"
-  	// "database/sql"
-  	// _ "github.com/go-sql-driver/mysql"
 )
 
 func Ping(c *gin.Context) {
@@ -24,7 +22,7 @@ func Ping(c *gin.Context) {
 
 func Stats(c *gin.Context) {
 
-	percent, _ := cpu.Percent(time.Second, false)
+	  percent, _ := cpu.Percent(time.Second, false)
     vmStat, _ := mem.VirtualMemory()
     diskStat, _ := disk.Usage("/")
 
@@ -34,45 +32,6 @@ func Stats(c *gin.Context) {
       "disk (%)": round(diskStat.UsedPercent,2),
     })
 }
-
-// func MysqlConnect(c *gin.Context) {
-
-
-//     host := os.Getenv("MYSQL_DB_HOST")
-//     port := os.Getenv("MYSQL_DB_PORT")
-//     name := os.Getenv("MYSQL_DB_NAME")
-//     username := os.Getenv("MYSQL_DB_USERNAME")
-//     password := os.Getenv("MYSQL_DB_PASSWORD")
-
-//     if host == "" || port == "" || name == "" || username == "" || password == "" {
-//         c.JSON(http.StatusBadRequest, gin.H{
-//             "status": "Database connection info is missing",
-//         })
-//         return
-//     }
-
-//     database_credential := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", username, password, host, port, name)
-
-//     db, err := sql.Open("mysql", database_credential)
-
-//     if errPing := db.Ping(); err != nil {
-//         c.JSON(http.StatusInternalServerError, gin.H{
-//             "status": "Ping failed",
-//             "error":  errPing.Error(),
-//         })
-//         return
-//     }
-
-//     c.JSON(http.StatusOK, gin.H{
-//         "status": "Success to connect to DB",
-//     })
-// }
-
-
-
-
-
-
 
 func round(val float64, precision uint) float64 {
   ratio := math.Pow(10, float64(precision))

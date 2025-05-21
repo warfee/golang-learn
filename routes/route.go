@@ -9,4 +9,5 @@ func SetupRoutes(router *gin.Engine) {
 	RndRoutes(router)
 	MongoRoutes(router)
 	MysqlRoutes(router)
+	SqliteRoutes(router)
 }

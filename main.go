@@ -8,6 +8,7 @@ import (
   "github.com/gin-gonic/gin"
   "github.com/joho/godotenv"
   "proj1/routes"
+  "proj1/handlers"
 )
 
 
@@ -22,6 +23,8 @@ func main() {
   if port == "" {
     port = "8080"
   }
+
+  handlers.StartMetricsTicker()
 
   router := gin.Default()
 

@@ -11,5 +11,7 @@ func RndRoutes(router *gin.Engine) {
 		rndRouteGroup.GET("/ping", handlers.Ping)
 		rndRouteGroup.GET("/stats", handlers.Stats)
 		// rndRouteGroup.GET("/mysql", handlers.MysqlConnect)
+
+		// rndRouteGroup.GET("/push-queue", handlers.PushQueue)
 	}
 }

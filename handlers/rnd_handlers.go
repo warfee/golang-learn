@@ -12,6 +12,8 @@ import (
   	// "net/http"
 )
 
+const redisAddress = "127.0.0.1:6379"
+
 func Ping(c *gin.Context) {
 
 	c.JSON(200, gin.H{
@@ -32,6 +34,7 @@ func Stats(c *gin.Context) {
       "disk (%)": round(diskStat.UsedPercent,2),
     })
 }
+
 
 func round(val float64, precision uint) float64 {
   ratio := math.Pow(10, float64(precision))
